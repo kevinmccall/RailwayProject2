@@ -30,11 +30,13 @@ function RailwayNetwork(networkName, routes) {
  * @constructor
  * @param {string} name - The name of the specific route.
  * @param {!Array<Stop>} stops - An array of stops for the route to visit.
+ * @param {string} color - The color to display the route.
  */
-function Route(name, stops) {
+function Route(name, stops, color) {
   this.name = name;
   /** @type {Array<Stop>} */
   this.stops = stops;
+  this.color = color;
   this.distance = undefined;
 }
 
@@ -190,7 +192,7 @@ function routeToString(route) {
   let res = null;
   if (route instanceof Route) {
     let distanceTraveled = 0;
-    res = `ROUTE: ${route.name}\n`;
+    res = `ROUTE: ${route.name}(${route.color})\nSTATIONS:\n`;
     route.stops.forEach((stop) => {
       res += `${stop.number} ${stop.stationName} ${distanceTraveled} miles\n`;
       distanceTraveled += stop.distanceToNext;
@@ -214,7 +216,9 @@ function routeSummary(data) {
   const width4 = 15;
   let res = null;
   if (data instanceof RailwayNetwork) {
+    // header of text
     res = 'Routes Summary\n==============\n';
+    // loop through and add each route summary
     data.routes.forEach((route) => {
       res += `${route.name.padEnd(width1, ' ')}-` +
           `${route.stops[0].stationName.padEnd(width2, ' ')}` +
@@ -236,6 +240,7 @@ function totalStations(data) {
   let res = null;
   if (data instanceof RailwayNetwork) {
     const stations = new Set();
+    // add all stations to a set and count the set size to get unique stations
     data.routes.forEach((route) => {
       route.stops.forEach((stop) => {
         stations.add(stop.stationId);
@@ -256,6 +261,7 @@ function routeDistance(route) {
   let res = null;
   if (route instanceof Route) {
     let distance = 0;
+    // loop through stops and get total forward distance
     route.stops.forEach((stop) => {
       distance += stop.distanceToNext;
     });
@@ -308,6 +314,7 @@ function addDistances(data) {
  */
 function sortRoutesByName(data, asc) {
   if (data instanceof RailwayNetwork) {
+    // compares names based off lexigraphical values
     const nameComparator = (r1, r2) => {
       let comparatorVal;
       if (r1.name < r2.name) comparatorVal = -1;
@@ -330,6 +337,7 @@ function sortRoutesByName(data, asc) {
  */
 function sortRoutesByLength(data, asc) {
   if (data instanceof RailwayNetwork) {
+    // compares routes based off the distances of the routes
     const lengthComparator = (r1, r2) => {
       let comparatorVal;
       if (r1.distance === undefined || r2.distance === undefined) {
@@ -366,17 +374,19 @@ function findRoute(data, from, to) {
         const diff = route2.number - route1.number;
         let distance = 0;
         let numStops = 0;
+        // if route is forward
         if (diff > 0) {
           for (let i = route1.number - 1; i < route2.number - 1; i++) {
             distance += route.stops[i].distanceToNext;
             numStops++;
           }
-        } else if (diff < 0) {
+        } else if (diff < 0) /* If route is going backwards*/{
           for (let i = route1.number - 1; i > route2.number - 1; i--) {
             distance += route.stops[i].distanceToPrev;
             numStops++;
           }
         }
+        // add closing line
         res = `${route.name}: ${from} to ${to} ` +
         `${numStops} stops and ${distance} miles`;
       }

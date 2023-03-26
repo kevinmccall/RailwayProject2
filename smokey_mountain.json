@@ -16,7 +16,7 @@
 					"stop": 2,
 					"stationName":"Dilsboro",
 					"stationID" : 2,
-					"distanceToNext" : 0,
+					"distanceToNext" : null,
 					"distanceToPrev" : 20
 				}
 			] 
