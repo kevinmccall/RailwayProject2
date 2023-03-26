@@ -20,6 +20,7 @@ const fs = require('fs');
  */
 function RailwayNetwork(networkName, routes) {
   this.networkName = networkName;
+  /** @type {Array{Route}} */
   this.routes = routes;
 }
 
@@ -32,6 +33,7 @@ function RailwayNetwork(networkName, routes) {
  */
 function Route(name, stops) {
   this.name = name;
+  /** @type {Array<Stop>} */
   this.stops = stops;
   this.distance = undefined;
 }
