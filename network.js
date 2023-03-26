@@ -2,14 +2,12 @@
  * Author: Kevin McCall
  *
  * Creates a graph for finding the most effecient paths across
- * a railway system.
+ * a railway system. Contains object and methods for finding paths.
  **/
 // @ts-check
 'use strict';
 
-const {readData, getNetworkName, getRoutes, getRouteNames, routeNamesToString,
-  routeSummary, getRoute, totalStations, routeToString, routeDistance,
-  findLongestRoute} = require('./railway.js');
+const {readData, getRoutes} = require('./railway.js');
 
 /**
  * Holds data for a station. On a graph this will represent the nodes of
