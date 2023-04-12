@@ -96,8 +96,16 @@
     "yocto-queue": "^0.1.0"
   },
   "scripts": {
-    "test": "node railway.js simpleton_railway.json Simpleton"
+    "tests" : "npx mocha .\\qa\\",
+    "tcoverage": "npx nyc --reporter=text npx mocha .\\qa\\",
+    "htmlcoverage": "npx nyc --reporter=html npx mocha .\\qa\\"
   },
   "author": "Kevin McCall",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "istanbul": "^0.4.5",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0"
+  }
 }
