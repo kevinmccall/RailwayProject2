@@ -2,7 +2,7 @@
  * @fileoverview Holds methods and objects to view railway station data.
  * @author Kevin McCall
  * @version 1.0
-*/
+ */
 'use strict';
 
 const fs = require('fs');
@@ -143,7 +143,7 @@ function getRouteNames(data) {
  * @return {string} - The string of route names.
  */
 function routeNamesToString(data) {
-  return getRouteNames(data).join(',\n');
+  return getRouteNames(data)?.join(',\n');
 }
 
 /**
@@ -220,12 +220,15 @@ function routeSummary(data) {
     res = 'Routes Summary\n==============\n';
     // loop through and add each route summary
     data.routes.forEach((route) => {
-      res += `${route.name.padEnd(width1, ' ')}-` +
-          `${route.stops[0].stationName.padEnd(width2, ' ')}` +
-          `${route.stops[route.stops.length - 1].stationName
-              .padEnd(width3, ' ')}-` +
-          `${String(routeDistance(route)).padStart(width4, ' ')}` +
-          ` miles\n`;
+      res +=
+        `${route.name.padEnd(width1, ' ')}-` +
+        `${route.stops[0].stationName.padEnd(width2, ' ')}` +
+        `${route.stops[route.stops.length - 1].stationName.padEnd(
+          width3,
+          ' '
+        )}-` +
+        `${String(routeDistance(route)).padStart(width4, ' ')}` +
+        ` miles\n`;
     });
   }
   return res;
@@ -305,7 +308,6 @@ function addDistances(data) {
   }
 }
 
-
 /**
  * Sorts the route property of the RailwayNetwork lexographically by route
  *    name.
@@ -341,7 +343,7 @@ function sortRoutesByLength(data, asc) {
     const lengthComparator = (r1, r2) => {
       let comparatorVal;
       if (r1.distance === undefined || r2.distance === undefined) {
-        addDistances();
+        addDistances(data);
       }
       if (r1.distance < r2.distance) comparatorVal = -1;
       else if (r1.distance < r2.distance) comparatorVal = 1;
@@ -380,21 +382,25 @@ function findRoute(data, from, to) {
             distance += route.stops[i].distanceToNext;
             numStops++;
           }
-        } else if (diff < 0) /* If route is going backwards*/{
-          for (let i = route1.number - 1; i > route2.number - 1; i--) {
+        } else if (diff < 0) {
+          /* If route is going backwards*/ for (
+            let i = route1.number - 1;
+            i > route2.number - 1;
+            i--
+          ) {
             distance += route.stops[i].distanceToPrev;
             numStops++;
           }
         }
         // add closing line
-        res = `${route.name}: ${from} to ${to} ` +
-        `${numStops} stops and ${distance} miles`;
+        res =
+          `${route.name}: ${from} to ${to} ` +
+          `${numStops} stops and ${distance} miles`;
       }
     });
   }
   return res;
 }
-
 
 /**
  * Conduct a range of tests on the functions developed
@@ -408,7 +414,7 @@ function main(fileName, lineName) {
 
   // Test route name
   console.log('===TEST=1=NETWORK=NAME===');
-  console.log( getNetworkName(data) );
+  console.log(getNetworkName(data));
 
   // Test getting routes
   console.log('\nTEST=2=GETTING=ROUTES=ARRAY');
@@ -427,7 +433,7 @@ function main(fileName, lineName) {
   console.log('\n===TEST=5=GET=ROUTE===');
   let route = getRoute(data, lineName);
   if (route != null) {
-    console.log( 'Found: ' + route.name);
+    console.log('Found: ' + route.name);
   } else {
     console.log('Route not found');
   }
@@ -468,7 +474,7 @@ function main(fileName, lineName) {
   // Test finding the longest route
   console.log('\n===TEST=13=FIND=LONGEST=ROUTE===');
   route = findLongestRoute(data);
-  console.log('Longest route is: ' +routeToString(route) + '\n');
+  console.log('Longest route is: ' + routeToString(route) + '\n');
 
   // Test routeDistance
   console.log('\n===TEST=14=Total_Stations===');
@@ -478,8 +484,8 @@ function main(fileName, lineName) {
   // TEst finding route from to.
   console.log('\n====(OPTIONAL) TEST=BONUS1=FIND=FROM=TO===');
   const str = findRoute(data, 'Cardiff', 'Reading');
-  console.log('>>END>>'+ str);
-}// end main
+  console.log('>>END>>' + str);
+} // end main
 
 // Call the main function
 if (require.main === module) {
@@ -488,7 +494,7 @@ if (require.main === module) {
     // Run the program with command line arguments
     main(process.argv[2], process.argv[3]);
   } else {
-    main('railtrack_uk.json', 'West Coast Main Line');
+    main('notional_ra.json', 'Northern Line');
   }
 }
 
@@ -506,6 +512,6 @@ exports.findLongestRoute = findLongestRoute;
 exports.addDistances = addDistances;
 exports.sortRoutesByName = sortRoutesByName;
 exports.sortRoutesByLength = sortRoutesByLength;
-
+exports.getStop = getStop;
 
 // main('smokey_mountain.json', 'Dilsboro to Nantahala');
