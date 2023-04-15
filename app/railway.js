@@ -86,7 +86,7 @@ function loadData(fileName) {
       res = jsonData;
     } catch (error) {
       if (error.code === 'ENOENT') {
-        console.error('File not found', error);
+        console.error('ERROR: File not found - ', error);
       }
       throw error;
     }
@@ -143,7 +143,12 @@ function getRouteNames(data) {
  * @return {string} - The string of route names.
  */
 function routeNamesToString(data) {
-  return getRouteNames(data)?.join(',\n');
+  let res = null;
+  const routeArray = getRouteNames(data);
+  if (routeArray != null) {
+    res = routeArray.join(',\n');
+  }
+  return res;
 }
 
 /**
@@ -495,6 +500,7 @@ if (require.main === module) {
     main(process.argv[2], process.argv[3]);
   } else {
     main('notional_ra.json', 'Northern Line');
+    // main('smokey_mountain.json', 'Dilsboro to Nantahala');
   }
 }
 
@@ -513,5 +519,4 @@ exports.addDistances = addDistances;
 exports.sortRoutesByName = sortRoutesByName;
 exports.sortRoutesByLength = sortRoutesByLength;
 exports.getStop = getStop;
-
-// main('smokey_mountain.json', 'Dilsboro to Nantahala');
+exports.findRoute = findRoute;

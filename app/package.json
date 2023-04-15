@@ -96,7 +96,7 @@
     "yocto-queue": "^0.1.0"
   },
   "scripts": {
-    "tests" : "npx mocha .\\qa\\",
+    "tests": "npx mocha --reporter-option maxDiffSize=0 .\\qa\\",
     "tcoverage": "npx nyc --reporter=text npx mocha .\\qa\\",
     "htmlcoverage": "npx nyc --reporter=html npx mocha .\\qa\\"
   },
