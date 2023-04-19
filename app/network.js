@@ -7,7 +7,7 @@
 // @ts-check
 'use strict';
 
-const {readData, getRoutes} = require('./railway.js');
+const { readData, getRoutes } = require('./railway.js');
 
 /**
  * Holds data for a station. On a graph this will represent the nodes of
@@ -98,8 +98,9 @@ Journey.prototype.report = function() {
   output += 'Route Summary\n==============\n';
   output += this.text;
   output += `\n\nTotal distance :${this.distance}\nChanges :${this.changes}\n`;
-  output += `Passing through: ` +
-  `${this.stations.map((station) => station.stationName).join(', ')},`;
+  output +=
+    `Passing through: ` +
+    `${this.stations.map((station) => station.stationName).join(', ')},`;
   return output;
 };
 
@@ -110,9 +111,7 @@ Journey.prototype.report = function() {
  */
 Journey.prototype.addChange = function(stationName, newRouteName) {
   this.changes += 1;
-  this.text += `At ` +
-  `${stationName}` +
-  ` change to ${newRouteName}\n`;
+  this.text += `At ` + `${stationName}` + ` change to ${newRouteName}\n`;
 };
 
 /**
@@ -121,8 +120,7 @@ Journey.prototype.addChange = function(stationName, newRouteName) {
  * @param {string} routeName The name of the route that you start on
  */
 Journey.prototype.addFirstStop = function(originName, routeName) {
-  this.text = `Embark at ${originName} on ` +
-    `${routeName}\n`;
+  this.text = `Embark at ${originName} on ` + `${routeName}\n`;
 };
 
 /**
@@ -137,6 +135,9 @@ const network = (fileName) => {
   let res = null;
   const graph = {};
   try {
+    if (typeof fileName !== 'string') {
+      throw new TypeError('fileName must be a string');
+    }
     const railwayObject = readData(fileName);
     if (railwayObject != null) {
       // loop through each route
@@ -154,14 +155,19 @@ const network = (fileName) => {
           }
           // for the previous link (check and see if there is a valid previous
           // station)
-          if (i - 1 >= 0 &&
-            stops[i - 1].stationName in graph) {
+          if (i - 1 >= 0 && stops[i - 1].stationName in graph) {
             // convert the previous stop index into a station object
             const previousStation = graph[stops[i - 1].stationName];
-            const currentToPrev = new Link(route.name, previousStation,
-                stop.distanceToPrev);
-            const prevToCurrent = new Link(route.name, currentStation,
-                stops[i - 1].distanceToNext);
+            const currentToPrev = new Link(
+              route.name,
+              previousStation,
+              stop.distanceToPrev,
+            );
+            const prevToCurrent = new Link(
+              route.name,
+              currentStation,
+              stops[i - 1].distanceToNext,
+            );
             currentStation.addLink(currentToPrev);
             previousStation.addLink(prevToCurrent);
           }
@@ -210,8 +216,14 @@ const getBestRoute = (graph, origin, destination, maxResults) => {
   const destinationStation = graph[destination];
   const possibleRoutes = [];
   const journey = new Journey();
-  doGetBestRoute(graph, originStation, destinationStation, journey,
-      possibleRoutes, 'origin');
+  doGetBestRoute(
+    graph,
+    originStation,
+    destinationStation,
+    journey,
+    possibleRoutes,
+    'origin',
+  );
   possibleRoutes.sort(sortJourney);
   return possibleRoutes.slice(0, maxResults);
 };
@@ -228,8 +240,14 @@ const getBestRoute = (graph, origin, destination, maxResults) => {
  * @param {string} routeName The name of the route just travelled on prior to
    arriving at this function invocation.
  */
-const doGetBestRoute = (graph, origin, destination, journey,
-    routesFound, routeName) => {
+const doGetBestRoute = (
+  graph,
+  origin,
+  destination,
+  journey,
+  routesFound,
+  routeName,
+) => {
   journey.stations.push(origin);
   // base case
   if (origin === destination) {
@@ -245,8 +263,8 @@ const doGetBestRoute = (graph, origin, destination, journey,
         if (routeName === 'origin') {
           newJourney = journey.copy();
           newJourney.addFirstStop(origin.stationName, link.routeName);
-        } else if (link.routeName !== routeName) /* If you switch routes*/{
-          newJourney = journey.copy();
+        } else if (link.routeName !== routeName) {
+          /* If you switch routes*/ newJourney = journey.copy();
           newJourney.addChange(origin.stationName, link.routeName);
         } else {
           // couldn't do optimization because it could follow down the main path
@@ -256,8 +274,14 @@ const doGetBestRoute = (graph, origin, destination, journey,
           newJourney = journey.copy();
         }
         newJourney.incDistance(link.distance);
-        doGetBestRoute(graph, link.station, destination,
-            newJourney, routesFound, link.routeName);
+        doGetBestRoute(
+          graph,
+          link.station,
+          destination,
+          newJourney,
+          routesFound,
+          link.routeName,
+        );
       }
     });
   }
@@ -268,6 +292,11 @@ const doGetBestRoute = (graph, origin, destination, journey,
  * @param {!Array<Journey>} journiesFound An array of completed journeys.
  */
 const displayRoutes = (journiesFound) => {
+  if (journiesFound == null || !Array.isArray(journiesFound)) {
+    console.log('Invalid input');
+    return;
+  }
+
   // if no routes are found
   if (journiesFound.length === 0) {
     console.log('One or more station cannot be found on this network\n\n\n');
@@ -289,34 +318,55 @@ const displayRoutes = (journiesFound) => {
  * network.js <data set> <origin> <destination> <max results> If the parameters
  * are found to be valid then you should call the necessary functions to build
  * the graph, find the best routes and display the results.
+ *
+ * @param {string} data Filename of the json data to use
+ * @param {string} origin Name of the starting station
+ * @param {string} destination Name of the ending station
+ * @param {number} maxResults Integer for maximum number of results to return
  */
-const main = () => {
+const main = (data, origin, destination, maxResults) => {
   try {
-    // get command line arguments
-    const data = process.argv[2];
-    const origin = process.argv[3];
-    const destination = process.argv[4];
-    const maxResults = parseInt(process.argv[5]);
-
+    if (isNaN(parseInt(maxResults))) {
+      throw new TypeError('maxResults is not a number');
+    } else if (typeof origin !== 'string') {
+      throw new TypeError('origin is not a string');
+    } else if (typeof destination !== 'string') {
+      throw new TypeError('destination is not a string');
+    } else if (typeof data != 'string') {
+      throw new TypeError('data must be a valid filename string');
+    }
     const daNetwork = network(data);
     const bestRoutes = getBestRoute(daNetwork, origin, destination, maxResults);
     displayRoutes(bestRoutes);
   } catch (error) {
     // exit program with usage method if errors occur
+    console.log(error);
     printUsageMessage();
     process.exit();
   }
 };
 
-/**
- * Prints the usage message for the file
- */
 const printUsageMessage = () => {
-  console.log('Error! Usage: node network.js <data set> ' +
-  '<origin> <destination> <max results>');
+  console.log(
+    'Error! Usage: node network.js <data set> ' +
+    '<origin> <destination> <max results>',
+  );
 };
 
 // main entry point idiom for file
 if (require.main === module) {
-  main();
+  // get command line arguments
+  const data = process.argv[2];
+  const origin = process.argv[3];
+  const destination = process.argv[4];
+  const maxResults = parseInt(process.argv[5]);
+  main(data, origin, destination, maxResults);
 }
+
+exports.network = network;
+exports.getBestRoute = getBestRoute;
+exports.doGetBestRoute = doGetBestRoute;
+exports.displayRoutes = displayRoutes;
+exports.main = main;
+// log using console.log
+exports.printUsageMessage = printUsageMessage;

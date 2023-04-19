@@ -70,20 +70,16 @@ function loadData(fileName) {
   if (typeof fileName == 'string') {
     try {
       const jsonData = JSON.parse(fs.readFileSync(fileName));
+      const routes = [];
       jsonData.routes.forEach((route) => {
+        const stops = [];
         route.stops.forEach((stop) => {
-          // Rename properties of JSON to match objects.
-          stop.number = stop.stop;
-          stop.stationId = stop.stationID;
-          delete stop.stop;
-          delete stop.stationID;
-          // Set protoypes of JSON to allow instanceof checks.
-          Object.setPrototypeOf(stop, Stop.prototype);
+          stops.push(new Stop(stop.stop, stop.stationName, stop.stationID,
+            stop.distanceToNext, stop.distanceToPrev));
         });
-        Object.setPrototypeOf(route, Route.prototype);
+        routes.push(new Route(route.name, stops, route.color));
       });
-      Object.setPrototypeOf(jsonData, RailwayNetwork.prototype);
-      res = jsonData;
+      res = new RailwayNetwork(jsonData.networkName, routes);
     } catch (error) {
       if (error.code === 'ENOENT') {
         console.error('ERROR: File not found - ', error);
@@ -230,7 +226,7 @@ function routeSummary(data) {
         `${route.stops[0].stationName.padEnd(width2, ' ')}` +
         `${route.stops[route.stops.length - 1].stationName.padEnd(
           width3,
-          ' '
+          ' ',
         )}-` +
         `${String(routeDistance(route)).padStart(width4, ' ')}` +
         ` miles\n`;
