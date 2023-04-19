@@ -54,8 +54,8 @@ describe('Testing railwayNetwork functions', function() {
   describe('Testing getNetworkName()', function() {
     it('should return the correct name if passed in a railwaynetwork', function() {
       assert.equal(
-        railway.getNetworkName(railwaySystem),
-        'Notional Railway Company',
+          railway.getNetworkName(railwaySystem),
+          'Notional Railway Company',
       );
     });
     it('should return null if incorrect data is passed', function() {
@@ -88,8 +88,8 @@ describe('Testing railwayNetwork functions', function() {
   describe('Testing routeNamesToString()', function() {
     it('should return the correct name if passed in a railwaynetwork', function() {
       assert.equal(
-        railway.routeNamesToString(railwaySystem),
-        'Cambleton Line,\nNorthern Line,\nCentral Line',
+          railway.routeNamesToString(railwaySystem),
+          'Cambleton Line,\nNorthern Line,\nCentral Line',
       );
     });
     it('should return null if incorrect data is passed', function() {
@@ -101,8 +101,8 @@ describe('Testing railwayNetwork functions', function() {
     it('should return Northern Line', function() {
       const northernLine = railwaySystem.routes[1];
       assert.equal(
-        railway.getRoute(railwaySystem, 'Northern Line'),
-        northernLine,
+          railway.getRoute(railwaySystem, 'Northern Line'),
+          northernLine,
       );
     });
     it('should return null if incorrect data is passed', function() {
@@ -114,8 +114,8 @@ describe('Testing railwayNetwork functions', function() {
     it('should return Tadcaster', function() {
       const northernLine = railwaySystem.routes[1];
       assert.equal(
-        railway.getStop(northernLine, 'Tadcaster').stationName,
-        'Tadcaster',
+          railway.getStop(northernLine, 'Tadcaster').stationName,
+          'Tadcaster',
       );
     });
     it('should return null if incorrect data is passed', function() {
@@ -145,20 +145,20 @@ describe('Testing railwayNetwork functions', function() {
 
       // regex to match the Cambleton Line
       assert.match(
-        routeSummary,
-        /Cambleton Line\s+-Campbell Glen\s+Elton\s+-\s+100 miles/,
+          routeSummary,
+          /Cambleton Line\s+-Campbell Glen\s+Elton\s+-\s+100 miles/,
       );
 
       // regex to match the Northern Line
       assert.match(
-        routeSummary,
-        /Northern Line\s+-Tadcaster\s+Lackluster\s+-\s+60 miles/,
+          routeSummary,
+          /Northern Line\s+-Tadcaster\s+Lackluster\s+-\s+60 miles/,
       );
 
       // regex to match the Central Line
       assert.match(
-        routeSummary,
-        /Central Line\s+-Campbell Glen\s+Chester\s+-\s+100 miles/,
+          routeSummary,
+          /Central Line\s+-Campbell Glen\s+Chester\s+-\s+100 miles/,
       );
     });
 
@@ -195,9 +195,9 @@ describe('Testing railwayNetwork functions', function() {
       railway.addDistances(railwaySystem);
       railwaySystem.routes.forEach((route) => {
         assert.property(
-          route,
-          'distance',
-          'route does not have distance property',
+            route,
+            'distance',
+            'route does not have distance property',
         );
       });
     });
@@ -210,12 +210,12 @@ describe('Testing railwayNetwork functions', function() {
 
   describe('Testing sortRoutesByName()', function() {
     it('it should sort Cambleton Line > Central Line > Northern Line ascending',
-      function() {
-        railway.sortRoutesByName(railwaySystem, true);
-        const summary = railway.routeSummary(railwaySystem);
-        const sortRegex = /Cambleton Line.*\nCentral Line.*\nNorthern Line/;
-        assert.match(summary, sortRegex, 'order is not ascending');
-      });
+        function() {
+          railway.sortRoutesByName(railwaySystem, true);
+          const summary = railway.routeSummary(railwaySystem);
+          const sortRegex = /Cambleton Line.*\nCentral Line.*\nNorthern Line/;
+          assert.match(summary, sortRegex, 'order is not ascending');
+        });
     it('it should sort Northern Line > Central Line > Cambleton Line descending', function() {
       railway.sortRoutesByName(railwaySystem);
       const summary = railway.routeSummary(railwaySystem);
@@ -267,8 +267,8 @@ describe('testing findRoute()', function() {
 
     const foundRoute = railway.findRoute(railtrackUK, station1, station2);
     assert.equal(
-      foundRoute,
-      'No direct route found between Lackluster and Chester',
+        foundRoute,
+        'No direct route found between Lackluster and Chester',
     );
   });
   it('should return cardiff to reading on great western railway', function() {
@@ -276,8 +276,8 @@ describe('testing findRoute()', function() {
     const station2 = 'Reading';
     const foundRoute = railway.findRoute(railtrackUK, station1, station2);
     assert.equal(
-      foundRoute,
-      'Great Western Railway: Cardiff to Reading 3 stops and 145 miles',
+        foundRoute,
+        'Great Western Railway: Cardiff to Reading 3 stops and 145 miles',
     );
   });
   it('should return reading to cardiff on great western railway', function() {
@@ -285,8 +285,8 @@ describe('testing findRoute()', function() {
     const station2 = 'Cardiff';
     const foundRoute = railway.findRoute(railtrackUK, station1, station2);
     assert.equal(
-      foundRoute,
-      'Great Western Railway: Reading to Cardiff 3 stops and 145 miles',
+        foundRoute,
+        'Great Western Railway: Reading to Cardiff 3 stops and 145 miles',
     );
   });
 });

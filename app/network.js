@@ -7,7 +7,7 @@
 // @ts-check
 'use strict';
 
-const { readData, getRoutes } = require('./railway.js');
+const {readData, getRoutes} = require('./railway.js');
 
 /**
  * Holds data for a station. On a graph this will represent the nodes of
@@ -159,14 +159,14 @@ const network = (fileName) => {
             // convert the previous stop index into a station object
             const previousStation = graph[stops[i - 1].stationName];
             const currentToPrev = new Link(
-              route.name,
-              previousStation,
-              stop.distanceToPrev,
+                route.name,
+                previousStation,
+                stop.distanceToPrev,
             );
             const prevToCurrent = new Link(
-              route.name,
-              currentStation,
-              stops[i - 1].distanceToNext,
+                route.name,
+                currentStation,
+                stops[i - 1].distanceToNext,
             );
             currentStation.addLink(currentToPrev);
             previousStation.addLink(prevToCurrent);
@@ -220,12 +220,12 @@ const getBestRoute = (graph, origin, destination, maxResults) => {
   const possibleRoutes = [];
   const journey = new Journey();
   doGetBestRoute(
-    graph,
-    originStation,
-    destinationStation,
-    journey,
-    possibleRoutes,
-    'origin',
+      graph,
+      originStation,
+      destinationStation,
+      journey,
+      possibleRoutes,
+      'origin',
   );
   possibleRoutes.sort(sortJourney);
   return possibleRoutes.slice(0, maxResults);
@@ -244,12 +244,12 @@ const getBestRoute = (graph, origin, destination, maxResults) => {
    arriving at this function invocation.
  */
 const doGetBestRoute = (
-  graph,
-  origin,
-  destination,
-  journey,
-  routesFound,
-  routeName,
+    graph,
+    origin,
+    destination,
+    journey,
+    routesFound,
+    routeName,
 ) => {
   journey.stations.push(origin);
   // base case
@@ -278,12 +278,12 @@ const doGetBestRoute = (
         }
         newJourney.incDistance(link.distance);
         doGetBestRoute(
-          graph,
-          link.station,
-          destination,
-          newJourney,
-          routesFound,
-          link.routeName,
+            graph,
+            link.station,
+            destination,
+            newJourney,
+            routesFound,
+            link.routeName,
         );
       }
     });
@@ -351,7 +351,7 @@ const main = (data, origin, destination, maxResults) => {
 
 const printUsageMessage = () => {
   console.log(
-    'Error! Usage: node network.js <data set> ' +
+      'Error! Usage: node network.js <data set> ' +
     '<origin> <destination> <max results>',
   );
 };

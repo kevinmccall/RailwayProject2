@@ -75,7 +75,7 @@ function loadData(fileName) {
         const stops = [];
         route.stops.forEach((stop) => {
           stops.push(new Stop(stop.stop, stop.stationName, stop.stationID,
-            stop.distanceToNext, stop.distanceToPrev));
+              stop.distanceToNext, stop.distanceToPrev));
         });
         routes.push(new Route(route.name, stops, route.color));
       });
@@ -225,8 +225,8 @@ function routeSummary(data) {
         `${route.name.padEnd(width1, ' ')}-` +
         `${route.stops[0].stationName.padEnd(width2, ' ')}` +
         `${route.stops[route.stops.length - 1].stationName.padEnd(
-          width3,
-          ' ',
+            width3,
+            ' ',
         )}-` +
         `${String(routeDistance(route)).padStart(width4, ' ')}` +
         ` miles\n`;
