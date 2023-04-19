@@ -22,28 +22,67 @@ describe('testing network()', function() {
       network(file);
     }, TypeError);
   });
+
+  it('should be able to load a railway station with cycles without causing an infinite loop', function() {
+    const file = 'kevin_railway.json';
+    assert.doesNotThrow(function() {
+      railway.readData(file);
+    });
+  });
 });
 
 describe('testing getBestRoute()', function() {
-  it('should return an empty array if no route is possible', function() {
+  it('should throw a TypeError if station is not found', function() {
     const graph = network.network('./notional_ra.json');
-    assert.deepEqual(network.getBestRoute(graph, 'Tyson', 'Clackton', 2), []);
+    assert.throws(function() {
+      network.getBestRoute(graph, 'Tyson', 'Clackton', 2);
+    }, TypeError);
   });
+  it('should instantly stop if you ask for a journey to the same place',
+    function() {
+      const graph = network.network('./simpleton_railway.json');
+      const journey = network.getBestRoute(graph, 'Alphaville', 'Alphaville')[0];
+      assert.isTrue(journey.success);
+      assert.equal(journey.distance, 0);
+      assert.equal(journey.changes, 0);
+    });
   it('should only return 1 result when passed 1 max result', function() {
     const graph = network.network('simpleton_railway.json');
     const maxResults = 1;
-    assert.equal(network.getBestRoute(graph, 'Alphaville', 'Epsilon', maxResults).length, maxResults);
+    assert.equal(
+      network.getBestRoute(graph, 'Alphaville', 'Epsilon', maxResults).length,
+      maxResults);
   });
-  it('should find three routes for Truro to Oban with changes 2, 3, 3', function() {
-    const graph = network.network('railtrack_uk.json');
-    const maxResults = 3;
-    const journeys = network.getBestRoute(graph, 'Truro', 'Oban', maxResults);
-    assert.equal(journeys[0].changes, 2);
-    assert.equal(journeys[0].distance, 870);
-    assert.equal(journeys[1].changes, 3);
-    assert.equal(journeys[1].distance, 840);
-    assert.equal(journeys[2].changes, 3);
-    assert.equal(journeys[2].distance, 840);
+  it('should find three routes for Truro to Oban with changes 2, 3, 3',
+    function() {
+      const graph = network.network('railtrack_uk.json');
+      const maxResults = 3;
+      const journeys = network.getBestRoute(graph, 'Truro', 'Oban', maxResults);
+      assert.equal(journeys[0].changes, 2);
+      assert.equal(journeys[0].distance, 870);
+      assert.equal(journeys[1].changes, 3);
+      assert.equal(journeys[1].distance, 840);
+      assert.equal(journeys[2].changes, 3);
+      assert.equal(journeys[2].distance, 840);
+    });
+  describe('should be able to find a path in a graph with cycles', function() {
+    let graph = null;
+    this.beforeEach(function() {
+      graph = network.network('kevin_railway.json');
+    });
+
+    it('should find 2 routes to Betaford from Alphaville', function() {
+      const maxResults = 2;
+      const journeys = network.getBestRoute(graph,
+        'Alphaville', 'Betaford', maxResults);
+      const alphaville = graph['Alphaville'];
+      const betaford = graph['Betaford'];
+      const gammaton = graph['Gammaton'];
+      assert.equal(journeys.length, maxResults);
+      assert.includeMembers(journeys[0].stations, [alphaville, betaford]);
+      assert.includeMembers(journeys[1].stations,
+        [alphaville, betaford, gammaton]);
+    });
   });
 });
 
@@ -122,11 +161,12 @@ describe('testing with console.log', function() {
       process.exit = oldExit;
     });
 
-    it('should throw a type error if <max results> is not a number', function() {
-      network.main('railtrack_uk.json', 'Oban', 'Glasgow', 'seven');
-      assert.isTrue(exited);
-      assert.include(log, 'maxResults is not a number');
-    });
+    it('should throw a type error if <max results> is not a number',
+      function() {
+        network.main('railtrack_uk.json', 'Oban', 'Glasgow', 'seven');
+        assert.isTrue(exited);
+        assert.include(log, 'maxResults is not a number');
+      });
 
     it('should throw an error if data is not a string', function() {
       network.main({}, 'Oban', 'Glasgow', 7);

@@ -1,0 +1,39 @@
+{
+  "networkName": "Kevin's Railway System",
+  "routes": [
+    {
+      "name": "Loop",
+      "color": "Red",
+      "stops": [
+        {
+          "stop": 1,
+          "stationName": "Alphaville",
+          "stationID": 1,
+          "distanceToNext": 1,
+          "distanceToPrev": null
+        },
+        {
+          "stop": 2,
+          "stationName": "Betaford",
+          "stationID": 2,
+          "distanceToNext": 2,
+          "distanceToPrev": 1
+        },
+        {
+          "stop": 3,
+          "stationName": "Gammaton",
+          "stationID": 3,
+          "distanceToNext": 3,
+          "distanceToPrev": 2
+        },
+        {
+          "stop": 1,
+          "stationName": "Alphaville",
+          "stationID": 1,
+          "distanceToNext": null,
+          "distanceToPrev": 3
+        }
+      ]
+    }
+  ]
+}

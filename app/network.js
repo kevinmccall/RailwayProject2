@@ -214,6 +214,9 @@ const getBestRoute = (graph, origin, destination, maxResults) => {
   };
   const originStation = graph[origin];
   const destinationStation = graph[destination];
+  if (originStation === undefined || destinationStation === undefined) {
+    throw new TypeError('Station not found in network');
+  }
   const possibleRoutes = [];
   const journey = new Journey();
   doGetBestRoute(
@@ -370,3 +373,4 @@ exports.displayRoutes = displayRoutes;
 exports.main = main;
 // log using console.log
 exports.printUsageMessage = printUsageMessage;
+

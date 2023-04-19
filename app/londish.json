@@ -1,532 +1,526 @@
 {
-	"networkName": "Notional Railway Company",
-	"routes":[
-		{
-			"name" : "Circle Line",
-			"color" : "Red",
-			"stops": [ 
-				{ 
-				  "stop": 1,
-				  "stationName": "Notting Hill Gate",
-				  "stationID": 1,
-				  "distanceToNext" : 4,
-				  "distanceToPrev" : null
-				},
-				{ 
-					"stop": 2,
-					"stationName":"Edgeware Road",
-					"stationID" : 2,
-					"distanceToNext" : 2,
-					"distanceToPrev" : 4
-				},
-				{ 
-					"stop": 3,
-					"stationName":"Baker Street",
-					"stationID" : 3,
-					"distanceToNext" : 2,
-					"distanceToPrev" : 2
-				},
-				{ 
-					"stop": 4,
-					"stationName":"Portland Street",
-					"stationID" : 4,
-					"distanceToNext" : 3.5,
-					"distanceToPrev" : 2
-				},
-				{ 
-					"stop": 5,
-					"stationName":"Kings Cross",
-					"stationID" : 5,
-					"distanceToNext" : 5,
-					"distanceToPrev" : 3.5
-				},
-				{ 
-					"stop": 6,
-					"stationName":"Faringdon",
-					"stationID" : 6,
-					"distanceToNext" : 3.5,
-					"distanceToPrev" : 5
-				},
-				{ 
-					"stop": 7,
-					"stationName":"Liverpool Street",
-					"stationID" : 7,
-					"distanceToNext" : 2.5,
-					"distanceToPrev" : 3.5
-				},
-				{ 
-					"stop": 8,
-					"stationName":"Aldgate",
-					"stationID" : 8,
-					"distanceToNext" : 3,
-					"distanceToPrev" : 2.5
-				},
-				{ 
-					"stop": 9,
-					"stationName":"Tower Hill",
-					"stationID" : 9,
-					"distanceToNext" : 2.5,
-					"distanceToPrev" : 3
-				},
-				{ 
-					"stop": 10,
-					"stationName":"Blackfriars",
-					"stationID" : 10,
-					"distanceToNext" : 2,
-					"distanceToPrev" : 2.5
-				},
-				{ 
-					"stop": 11,
-					"stationName":"Embankment",
-					"stationID" : 11,
-					"distanceToNext" : 2,
-					"distanceToPrev" : 2
-				},
-				{ 
-					"stop": 12,
-					"stationName":"Picadilly Circus",
-					"stationID" : 12,
-					"distanceToNext" : 2,
-					"distanceToPrev" : 2
-				},
-				{ 
-					"stop": 13,
-					"stationName":"St James Park",
-					"stationID" : 13,
-					"distanceToNext" : 3,
-					"distanceToPrev" : 2
-				},
-				{ 
-					"stop": 14,
-					"stationName":"Kensington",
-					"stationID" : 14,
-					"distanceToNext" : 3,
-					"distanceToPrev" : 2
-				}
-			] 
-			
-		},
-		{
-			"name" : "Northern Line",
-			"color" : "Grey",
-			"stops" : [ 
-						{ 
-						  "stop": 1,
-						  "stationName": "Acton",
-						  "stationID": 15,
-						  "distanceToNext" : 4,
-						  "distanceToPrev" : null
-						},
-						{ 
-						  "stop": 2,
-						  "stationName": "Earls Court",
-						  "stationID": 16,
-						  "distanceToNext" : 3,
-						  "distanceToPrev" : 4
-						},
-						{ 
-						  "stop": 3,
-						  "stationName": "Hammersmith",
-						  "stationID": 17,
-						  "distanceToNext" : 3,
-						  "distanceToPrev" : 3
-						},
-						{ 
-						  "stop": 4,
-						  "stationName": "St James Park",
-						  "stationID": 18,
-						  "distanceToNext" : 2,
-						  "distanceToPrev" : 3
-						},
-						{ 
-						  "stop": 5,
-						  "stationName": "Oxford Circus",
-						  "stationID": 19,
-						  "distanceToNext" : 3.5,
-						  "distanceToPrev" : 2
-						},
-						{ 
-						  "stop": 6,
-						  "stationName": "Portland Street",
-						  "stationID": 20,
-						  "distanceToNext" : 1.5,
-						  "distanceToPrev" : 3.5
-						},
-						{ 
-						  "stop": 7,
-						  "stationName": "Euston",
-						  "stationID": 21,
-						  "distanceToNext" : 2,
-						  "distanceToPrev" : 1.5
-						},
-						{ 
-						  "stop": 8,
-						  "stationName": "Camden Town",
-						  "stationID": 22,
-						  "distanceToNext": 2,
-						  "distanceToPrev" : 2
-						},
-						{ 
-						  "stop": 9,
-						  "stationName": "Chalk Farm",
-						  "stationID": 23,
-						  "distanceToNext" : null,
-						  "distanceToPrev" : 2
-						}
-					]
-		},
-		{
-			"name" : "Central Line",
-			"color" : "Blue",
-			"stops" : [ 
-						{ 
-						  "stop": 1,
-						  "stationName": "Ealing",
-						  "stationID": 24,
-						  "distanceToNext" : 3,
-						  "distanceToPrev" : null
-						},
-						{ 
-						  "stop": 2,
-						  "stationName": "White City",
-						  "stationID": 25,
-						  "distanceToNext" : 2,
-						  "distanceToPrev" : 3
-						},
-						{ 
-						  "stop": 3,
-						  "stationName": "Notting Hill Gate",
-						  "stationID": 1,
-						  "distanceToNext" : 1.5,
-						  "distanceToPrev" : 2
-						},
-						{ 
-						  "stop": 4,
-						  "stationName": "Marble Arch",
-						  "stationID": 26,
-						  "distanceToNext" : 1.5,
-						  "distanceToPrev" : 1.5
-						},
-						{ 
-						  "stop": 5,
-						  "stationName": "Oxford Circus",
-						  "stationID": 19,
-						  "distanceToNext" : 4.5,
-						  "distanceToPrev" : 1.5
-						},
-						{ 
-						  "stop": 6,
-						  "stationName": "Totenham Court Road",
-						  "stationID": 27,
-						  "distanceToNext" : 1.5,
-						  "distanceToPrev" : 4.5
-						},
-						{ 
-						  "stop": 7,
-						  "stationName": "Holborn",
-						  "stationID": 28,
-						  "distanceToNext" : 2.5,
-						  "distanceToPrev" : 1.5
-						},
-						{ 
-						  "stop": 8,
-						  "stationName": "Aldgate",
-						  "stationID": 8,
-						  "distanceToNext" : 2,
-						  "distanceToPrev" : 2.5
-						},
-						{ 
-						  "stop": 8,
-						  "stationName": "Whitechapel",
-						  "stationID": 29,
-						  "distanceToNext" : null,
-						  "distanceToPrev" : 2
-						}
-					]
-		},
-		{
-			"name" : "City Line",
-			"color" : "Cyan",
-			"stops" : [ 
-						{ 
-						  "stop": 1,
-						  "stationName": "Ealing",
-						  "stationID": 24,
-						  "distanceToNext" : 3,
-						  "distanceToPrev" : null
-						},
-						{ 
-						  "stop": 2,
-						  "stationName": "Hillingdon",
-						  "stationID": 30,
-						  "distanceToNext" : 2,
-						  "distanceToPrev" : 3
-						},
-						{ 
-						  "stop": 3,
-						  "stationName": "Wembley",
-						  "stationID": 30,
-						  "distanceToNext" : 2,
-						  "distanceToPrev" : 2
-						},
-						{ 
-						  "stop": 4,
-						  "stationName": "Baker Street",
-						  "stationID": 3,
-						  "distanceToNext" : 3,
-						  "distanceToPrev" : 2
-						},
-						{ 
-						  "stop": 5,
-						  "stationName": "Oxford Circus",
-						  "stationID": 19,
-						  "distanceToNext" : 3,
-						  "distanceToPrev" : 3
-						},
-						{ 
-						  "stop": 6,
-						  "stationName": "Picadilly Circus",
-						  "stationID": 12,
-						  "distanceToNext" : 3,
-						  "distanceToPrev" : 3
-						},
-						{ 
-						  "stop": 7,
-						  "stationName": "Pimlico",
-						  "stationID": 31,
-						  "distanceToNext" : 2,
-						  "distanceToPrev" : 3  
-						},
-						{ 
-						  "stop": 8,
-						  "stationName": "Vauxhall",
-						  "stationID": 32,
-						  "distanceToNext" : 3,
-						  "distanceToPrev" : 2  
-						},
-						{ 
-						  "stop": 9,
-						  "stationName": "Brixton",
-						  "stationID": 33,
-						  "distanceToNext" : 2,
-						  "distanceToPrev" : 3  
-						},
-						{ 
-						  "stop": 10,
-						  "stationName": "Elephant and Castle",
-						  "stationID": 34,
-						  "distanceToNext" : 2,
-						  "distanceToPrev" : 2  
-						},
-						{ 
-						  "stop": 11,
-						  "stationName": "Peckham",
-						  "stationID": 35,
-						  "distanceToNext" : 4,
-						  "distanceToPrev" : 2  
-						},
-						{ 
-						  "stop": 12,
-						  "stationName": "Chrystal Pallace",
-						  "stationID": 36,
-						  "distanceToNext" : 4,
-						  "distanceToPrev" : 4  
-						},
-						{ 
-						  "stop": 13,
-						  "stationName": "Wapping",
-						  "stationID": 37,
-						  "distanceToNext" : 4,
-						  "distanceToPrev" : 4  
-						},
-						{ 
-						  "stop": 15,
-						  "stationName": "Whitechapel",
-						  "stationID": 29,
-						  "distanceToNext" : null,
-						  "distanceToPrev" : 4  
-						}
-						
-					  ]
-		},
-		{
-			"name" : "North West Line",
-			"color" : "Purple",
-			"stops" : [ 
-						{ 
-						  "stop": 1,
-						  "stationName": "Uxbridge",
-						  "stationID": 38,
-						  "distanceToNext" : 4,
-						  "distanceToPrev" : null
-						},
-						{ 
-						  "stop": 2,
-						  "stationName": "Watford",
-						  "stationID": 39,
-						  "distanceToNext" : 3.5,
-						  "distanceToPrev" : 4
-						},
-						{ 
-						  "stop": 3,
-						  "stationName": "Euston",
-						  "stationID": 21,
-						  "distanceToNext" : 6,
-						  "distanceToPrev" : 3.5
-						},
-						{ 
-						  "stop": 4,
-						  "stationName": "Arsenal",
-						  "stationID": 40,
-						  "distanceToNext" : 6.5,
-						  "distanceToPrev" :6
-						},
-						{ 
-						  "stop": 5,
-						  "stationName": "Stratford",
-						  "stationID": 41,
-						  "distanceToNext" : 3,
-						  "distanceToPrev" : 6
-						},
-						{ 
-						  "stop": 6,
-						  "stationName": "Liverpool Street",
-						  "stationID": 7,
-						  "distanceToNext" : 3.5,
-						  "distanceToPrev" : 3
-						},
-						{ 
-						  "stop": 7,
-						  "stationName": "Tower Hill",
-						  "stationID": 9,
-						  "distanceToNext" : 2.5,
-						  "distanceToPrev" : 3.5  
-						},
-						{ 
-						  "stop": 8,
-						  "stationName": "Waterloo",
-						  "stationID": 32,
-						  "distanceToNext" : 2,
-						  "distanceToPrev" : 2.5 
-						},
-						{ 
-						  "stop": 9,
-						  "stationName": "Elephant and Castle",
-						  "stationID": 34,
-						  "distanceToNext" : null,
-						  "distanceToPrev" : 2  
-						}
-						
-					  ]
-	
-		},
-		{
-			"name" : "District Line",
-			"color" : "Yellow",
-			"stops" : [ 
-						{ 
-						  "stop": 1,
-						  "stationName": "Heathrow Airport",
-						  "stationID": 42,
-						  "distanceToNext" : 3,
-						  "distanceToPrev" : 4,
-						  "LoopTo": 14
-						},
-						{ 
-						  "stop": 2,
-						  "stationName": "Hounslow",
-						  "stationID": 43,
-						  "distanceToNext" : 2,
-						  "distanceToPrev" : 3
-						},
-						{ 
-						  "stop": 3,
-						  "stationName": "Acton",
-						  "stationID": 15,
-						  "distanceToNext" : 3,
-						  "distanceToPrev" : 2
-						},
-						{ 
-						  "stop": 4,
-						  "stationName": "Kensington",
-						  "stationID": 14,
-						  "distanceToNext" : 4,
-						  "distanceToPrev" :3
-						},
-						{ 
-						  "stop": 5,
-						  "stationName": "Oxford Circus",
-						  "stationID": 19,
-						  "distanceToNext" : 3,
-						  "distanceToPrev" : 4
-						},
-						{ 
-						  "stop": 6,
-						  "stationName": "Kings Cross",
-						  "stationID": 5,
-						  "distanceToNext" : 2.5,
-						  "distanceToPrev" : 3
-						},
-						{ 
-						  "stop": 7,
-						  "stationName": "Arsenal",
-						  "stationID": 40,
-						  "distanceToNext" : 3,
-						  "distanceToPrev" : 2.5  
-						},
-						{ 
-						  "stop": 8,
-						  "stationName": "High Barnet",
-						  "stationID": 44,
-						  "distanceToNext" : 4,
-						  "distanceToPrev" : 3 
-						},
-						{ 
-						  "stop": 9,
-						  "stationName": "Chigwell",
-						  "stationID": 45,
-						  "distanceToNext" : 2,
-						  "distanceToPrev" : 4  
-						},
-						{ 
-						  "stop": 10,
-						  "stationName": "Grange Hill",
-						  "stationID": 46,
-						  "distanceToNext" : 3,
-						  "distanceToPrev" : 2  
-						},
-						{ 
-						  "stop": 11,
-						  "stationName": "Bankside",
-						  "stationID": 47,
-						  "distanceToNext" : 3,
-						  "distanceToPrev" : 3  
-						},
-						{ 
-						  "stop": 12,
-						  "stationName": "Bankside",
-						  "stationID": 48,
-						  "distanceToNext" : 3,
-						  "distanceToPrev" : 3  
-						},
-						{ 
-						  "stop": 13,
-						  "stationName": "Statford",
-						  "stationID": 41,
-						  "distanceToNext" : 2,
-						  "distanceToPrev" : 3  
-						},
-						{ 
-						  "stop": 14,
-						  "stationName": "Hackney",
-						  "stationID": 49,
-						  "distanceToNext" : 2,
-						  "distanceToPrev" : 2,
-						  "LoopTo": 5						  
-						}
-						
-					  ]
-	
-		}
-	]
+  "networkName": "Notional Railway Company",
+  "routes": [
+    {
+      "name": "Circle Line",
+      "color": "Red",
+      "stops": [
+        {
+          "stop": 1,
+          "stationName": "Notting Hill Gate",
+          "stationID": 1,
+          "distanceToNext": 4,
+          "distanceToPrev": null
+        },
+        {
+          "stop": 2,
+          "stationName": "Edgeware Road",
+          "stationID": 2,
+          "distanceToNext": 2,
+          "distanceToPrev": 4
+        },
+        {
+          "stop": 3,
+          "stationName": "Baker Street",
+          "stationID": 3,
+          "distanceToNext": 2,
+          "distanceToPrev": 2
+        },
+        {
+          "stop": 4,
+          "stationName": "Portland Street",
+          "stationID": 4,
+          "distanceToNext": 3.5,
+          "distanceToPrev": 2
+        },
+        {
+          "stop": 5,
+          "stationName": "Kings Cross",
+          "stationID": 5,
+          "distanceToNext": 5,
+          "distanceToPrev": 3.5
+        },
+        {
+          "stop": 6,
+          "stationName": "Faringdon",
+          "stationID": 6,
+          "distanceToNext": 3.5,
+          "distanceToPrev": 5
+        },
+        {
+          "stop": 7,
+          "stationName": "Liverpool Street",
+          "stationID": 7,
+          "distanceToNext": 2.5,
+          "distanceToPrev": 3.5
+        },
+        {
+          "stop": 8,
+          "stationName": "Aldgate",
+          "stationID": 8,
+          "distanceToNext": 3,
+          "distanceToPrev": 2.5
+        },
+        {
+          "stop": 9,
+          "stationName": "Tower Hill",
+          "stationID": 9,
+          "distanceToNext": 2.5,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 10,
+          "stationName": "Blackfriars",
+          "stationID": 10,
+          "distanceToNext": 2,
+          "distanceToPrev": 2.5
+        },
+        {
+          "stop": 11,
+          "stationName": "Embankment",
+          "stationID": 11,
+          "distanceToNext": 2,
+          "distanceToPrev": 2
+        },
+        {
+          "stop": 12,
+          "stationName": "Picadilly Circus",
+          "stationID": 12,
+          "distanceToNext": 2,
+          "distanceToPrev": 2
+        },
+        {
+          "stop": 13,
+          "stationName": "St James Park",
+          "stationID": 13,
+          "distanceToNext": 3,
+          "distanceToPrev": 2
+        },
+        {
+          "stop": 14,
+          "stationName": "Kensington",
+          "stationID": 14,
+          "distanceToNext": 3,
+          "distanceToPrev": 2
+        }
+      ]
+    },
+    {
+      "name": "Northern Line",
+      "color": "Grey",
+      "stops": [
+        {
+          "stop": 1,
+          "stationName": "Acton",
+          "stationID": 15,
+          "distanceToNext": 4,
+          "distanceToPrev": null
+        },
+        {
+          "stop": 2,
+          "stationName": "Earls Court",
+          "stationID": 16,
+          "distanceToNext": 3,
+          "distanceToPrev": 4
+        },
+        {
+          "stop": 3,
+          "stationName": "Hammersmith",
+          "stationID": 17,
+          "distanceToNext": 3,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 4,
+          "stationName": "St James Park",
+          "stationID": 18,
+          "distanceToNext": 2,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 5,
+          "stationName": "Oxford Circus",
+          "stationID": 19,
+          "distanceToNext": 3.5,
+          "distanceToPrev": 2
+        },
+        {
+          "stop": 6,
+          "stationName": "Portland Street",
+          "stationID": 20,
+          "distanceToNext": 1.5,
+          "distanceToPrev": 3.5
+        },
+        {
+          "stop": 7,
+          "stationName": "Euston",
+          "stationID": 21,
+          "distanceToNext": 2,
+          "distanceToPrev": 1.5
+        },
+        {
+          "stop": 8,
+          "stationName": "Camden Town",
+          "stationID": 22,
+          "distanceToNext": 2,
+          "distanceToPrev": 2
+        },
+        {
+          "stop": 9,
+          "stationName": "Chalk Farm",
+          "stationID": 23,
+          "distanceToNext": null,
+          "distanceToPrev": 2
+        }
+      ]
+    },
+    {
+      "name": "Central Line",
+      "color": "Blue",
+      "stops": [
+        {
+          "stop": 1,
+          "stationName": "Ealing",
+          "stationID": 24,
+          "distanceToNext": 3,
+          "distanceToPrev": null
+        },
+        {
+          "stop": 2,
+          "stationName": "White City",
+          "stationID": 25,
+          "distanceToNext": 2,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 3,
+          "stationName": "Notting Hill Gate",
+          "stationID": 1,
+          "distanceToNext": 1.5,
+          "distanceToPrev": 2
+        },
+        {
+          "stop": 4,
+          "stationName": "Marble Arch",
+          "stationID": 26,
+          "distanceToNext": 1.5,
+          "distanceToPrev": 1.5
+        },
+        {
+          "stop": 5,
+          "stationName": "Oxford Circus",
+          "stationID": 19,
+          "distanceToNext": 4.5,
+          "distanceToPrev": 1.5
+        },
+        {
+          "stop": 6,
+          "stationName": "Totenham Court Road",
+          "stationID": 27,
+          "distanceToNext": 1.5,
+          "distanceToPrev": 4.5
+        },
+        {
+          "stop": 7,
+          "stationName": "Holborn",
+          "stationID": 28,
+          "distanceToNext": 2.5,
+          "distanceToPrev": 1.5
+        },
+        {
+          "stop": 8,
+          "stationName": "Aldgate",
+          "stationID": 8,
+          "distanceToNext": 2,
+          "distanceToPrev": 2.5
+        },
+        {
+          "stop": 8,
+          "stationName": "Whitechapel",
+          "stationID": 29,
+          "distanceToNext": null,
+          "distanceToPrev": 2
+        }
+      ]
+    },
+    {
+      "name": "City Line",
+      "color": "Cyan",
+      "stops": [
+        {
+          "stop": 1,
+          "stationName": "Ealing",
+          "stationID": 24,
+          "distanceToNext": 3,
+          "distanceToPrev": null
+        },
+        {
+          "stop": 2,
+          "stationName": "Hillingdon",
+          "stationID": 30,
+          "distanceToNext": 2,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 3,
+          "stationName": "Wembley",
+          "stationID": 30,
+          "distanceToNext": 2,
+          "distanceToPrev": 2
+        },
+        {
+          "stop": 4,
+          "stationName": "Baker Street",
+          "stationID": 3,
+          "distanceToNext": 3,
+          "distanceToPrev": 2
+        },
+        {
+          "stop": 5,
+          "stationName": "Oxford Circus",
+          "stationID": 19,
+          "distanceToNext": 3,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 6,
+          "stationName": "Picadilly Circus",
+          "stationID": 12,
+          "distanceToNext": 3,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 7,
+          "stationName": "Pimlico",
+          "stationID": 31,
+          "distanceToNext": 2,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 8,
+          "stationName": "Vauxhall",
+          "stationID": 32,
+          "distanceToNext": 3,
+          "distanceToPrev": 2
+        },
+        {
+          "stop": 9,
+          "stationName": "Brixton",
+          "stationID": 33,
+          "distanceToNext": 2,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 10,
+          "stationName": "Elephant and Castle",
+          "stationID": 34,
+          "distanceToNext": 2,
+          "distanceToPrev": 2
+        },
+        {
+          "stop": 11,
+          "stationName": "Peckham",
+          "stationID": 35,
+          "distanceToNext": 4,
+          "distanceToPrev": 2
+        },
+        {
+          "stop": 12,
+          "stationName": "Chrystal Pallace",
+          "stationID": 36,
+          "distanceToNext": 4,
+          "distanceToPrev": 4
+        },
+        {
+          "stop": 13,
+          "stationName": "Wapping",
+          "stationID": 37,
+          "distanceToNext": 4,
+          "distanceToPrev": 4
+        },
+        {
+          "stop": 15,
+          "stationName": "Whitechapel",
+          "stationID": 29,
+          "distanceToNext": null,
+          "distanceToPrev": 4
+        }
+      ]
+    },
+    {
+      "name": "North West Line",
+      "color": "Purple",
+      "stops": [
+        {
+          "stop": 1,
+          "stationName": "Uxbridge",
+          "stationID": 38,
+          "distanceToNext": 4,
+          "distanceToPrev": null
+        },
+        {
+          "stop": 2,
+          "stationName": "Watford",
+          "stationID": 39,
+          "distanceToNext": 3.5,
+          "distanceToPrev": 4
+        },
+        {
+          "stop": 3,
+          "stationName": "Euston",
+          "stationID": 21,
+          "distanceToNext": 6,
+          "distanceToPrev": 3.5
+        },
+        {
+          "stop": 4,
+          "stationName": "Arsenal",
+          "stationID": 40,
+          "distanceToNext": 6.5,
+          "distanceToPrev": 6
+        },
+        {
+          "stop": 5,
+          "stationName": "Stratford",
+          "stationID": 41,
+          "distanceToNext": 3,
+          "distanceToPrev": 6
+        },
+        {
+          "stop": 6,
+          "stationName": "Liverpool Street",
+          "stationID": 7,
+          "distanceToNext": 3.5,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 7,
+          "stationName": "Tower Hill",
+          "stationID": 9,
+          "distanceToNext": 2.5,
+          "distanceToPrev": 3.5
+        },
+        {
+          "stop": 8,
+          "stationName": "Waterloo",
+          "stationID": 32,
+          "distanceToNext": 2,
+          "distanceToPrev": 2.5
+        },
+        {
+          "stop": 9,
+          "stationName": "Elephant and Castle",
+          "stationID": 34,
+          "distanceToNext": null,
+          "distanceToPrev": 2
+        }
+      ]
+    },
+    {
+      "name": "District Line",
+      "color": "Yellow",
+      "stops": [
+        {
+          "stop": 1,
+          "stationName": "Heathrow Airport",
+          "stationID": 42,
+          "distanceToNext": 3,
+          "distanceToPrev": 4,
+          "LoopTo": 14
+        },
+        {
+          "stop": 2,
+          "stationName": "Hounslow",
+          "stationID": 43,
+          "distanceToNext": 2,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 3,
+          "stationName": "Acton",
+          "stationID": 15,
+          "distanceToNext": 3,
+          "distanceToPrev": 2
+        },
+        {
+          "stop": 4,
+          "stationName": "Kensington",
+          "stationID": 14,
+          "distanceToNext": 4,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 5,
+          "stationName": "Oxford Circus",
+          "stationID": 19,
+          "distanceToNext": 3,
+          "distanceToPrev": 4
+        },
+        {
+          "stop": 6,
+          "stationName": "Kings Cross",
+          "stationID": 5,
+          "distanceToNext": 2.5,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 7,
+          "stationName": "Arsenal",
+          "stationID": 40,
+          "distanceToNext": 3,
+          "distanceToPrev": 2.5
+        },
+        {
+          "stop": 8,
+          "stationName": "High Barnet",
+          "stationID": 44,
+          "distanceToNext": 4,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 9,
+          "stationName": "Chigwell",
+          "stationID": 45,
+          "distanceToNext": 2,
+          "distanceToPrev": 4
+        },
+        {
+          "stop": 10,
+          "stationName": "Grange Hill",
+          "stationID": 46,
+          "distanceToNext": 3,
+          "distanceToPrev": 2
+        },
+        {
+          "stop": 11,
+          "stationName": "Bankside",
+          "stationID": 47,
+          "distanceToNext": 3,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 12,
+          "stationName": "Redbridge",
+          "stationID": 48,
+          "distanceToNext": 3,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 13,
+          "stationName": "Statford",
+          "stationID": 41,
+          "distanceToNext": 2,
+          "distanceToPrev": 3
+        },
+        {
+          "stop": 14,
+          "stationName": "Hackney",
+          "stationID": 49,
+          "distanceToNext": 2,
+          "distanceToPrev": 2,
+          "LoopTo": 5
+        }
+      ]
+    }
+  ]
 }

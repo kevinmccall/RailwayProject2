@@ -209,12 +209,13 @@ describe('Testing railwayNetwork functions', function() {
   });
 
   describe('Testing sortRoutesByName()', function() {
-    it('it should sort Cambleton Line > Central Line > Northern Line ascending', function() {
-      railway.sortRoutesByName(railwaySystem, true);
-      const summary = railway.routeSummary(railwaySystem);
-      const sortRegex = /Cambleton Line.*\nCentral Line.*\nNorthern Line/;
-      assert.match(summary, sortRegex, 'order is not ascending');
-    });
+    it('it should sort Cambleton Line > Central Line > Northern Line ascending',
+      function() {
+        railway.sortRoutesByName(railwaySystem, true);
+        const summary = railway.routeSummary(railwaySystem);
+        const sortRegex = /Cambleton Line.*\nCentral Line.*\nNorthern Line/;
+        assert.match(summary, sortRegex, 'order is not ascending');
+      });
     it('it should sort Northern Line > Central Line > Cambleton Line descending', function() {
       railway.sortRoutesByName(railwaySystem);
       const summary = railway.routeSummary(railwaySystem);
